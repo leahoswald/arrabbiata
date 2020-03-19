@@ -1,4 +1,4 @@
-# Arabiata hugo theme
+# Arrabiata hugo theme
 
 This theme is brought to you without big documentation, guaranties and support (for now). It is only a version of the theme used at https://leah.is, my private blog.
 
