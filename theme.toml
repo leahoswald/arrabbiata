@@ -3,7 +3,7 @@
 
 name = "arabiata"
 license = "MIT"
-licenselink = "https://github.com/nazco/arabiata/LICENSE"
+licenselink = "https://github.com/nazco/arabiata/blob/master/LICENSE"
 description = "A very minimal theme optimized for a very small footprint"
 homepage = "https://github.com/nazco/arabiata"
 tags = ["blog", "minimal"]
