@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <a href="/index.xml">RSS-Feed</a>
+  {{ with .Site.Params.mastodon }}<a href="{{ . }}">Mastodon</a>{{ end }}
+  {{ with .Site.Params.flickr }}<a href="https://www.flickr.com/photos/{{ . }}">Flickr</a>{{ end }}
+  <section class="copyright">&copy; {{ now.Format "2006" }} {{ .Site.Copyright }}</section>
+
+<!-- custom js -->
+{{ range .Site.Params.customJS }}
+  <script src="{{ "/js/" | relURL }}{{ . }}"></script>
+{{ end }}

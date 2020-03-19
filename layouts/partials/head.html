@@ -1,0 +1,32 @@
+<head>
+    <meta charset="utf-8" />
+    <!-- Page Meta -->
+    <title>
+      {{ block "title" . }}
+      {{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+      {{ end }}
+		</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    {{ end -}}
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="robots" content="index, nofollow, noarchive"> 
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}"/>
+    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <meta property="og:description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
+    <meta property="og:url" content="{{ .Permalink | absURL }}" />
+    <link rel="canonical" href="{{ .Permalink | absURL }}" />
+    
+    <!-- Styles and Fonts -->
+    {{ $normalize := resources.Get "css/normalize.css" }}
+    {{ $fonts := resources.Get "css/fonts.css" }}
+    {{ $screen := resources.Get "css/screen.css" }}
+    {{ $css := slice $normalize $fonts $screen | resources.Concat "css/bundle.css" | minify }}
+    <link rel="stylesheet" href="{{ $css.Permalink | relURL }}" />
+    
+    <!-- custom css -->
+    {{ range .Site.Params.customCSS }}
+    <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
+    {{ end }}
+</head>
